@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        header1 {
+                       
+            text-align: center;
+            padding: 10px;
+        }
+        #mapContainer {
+            margin: auto;
+            margin-top:80px;
+            width: 80vw;
+            height: 100vh; /* Adjusted height to make room for weather section */
+        }
+        #weatherContainer {
+            margin: auto;
+            width: 80vw;
+            padding: 10px;
+            text-align: center;
+        }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-height: 3000px;
+}
+
+header {
+    background-color: #1E90FF;
+    color: #fff;
+    padding: 20px 0;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+        /* Button styles */
+
+
+
+    </style>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://js.api.here.com/v3/3.0/mapsjs-ui.css" />
+    <script src="credentials.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <h1>Trip Snap</h1>
+                <ul>
+                    <li><a href="main.html">Home</a></li>
+                    <li><a href="tour.html">Tours</a></li>
+                    <li><a href="index.html">Explore</a></li>
+                    <li><a href="tracker.html">Expense tracker</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div id="header1">
+        <h1>Explore the destination!</h1>
+    </div>
+
+    <div id="mapContainer"></div>
+    
+    <div id="weatherContainer">
+        <h2 style="color: #fff;"><a href="https://www.accuweather.com/en/in/tn/tamil-nadu-weather"> Weather Information</a></h2>
+        <div id="weatherData"></div>
+    </div>
+</body>
+<style>
+    /* Resetting default browser styles */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+    }
+    /* Header styles */
+    #header {
+        background-color: #ed12de;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        padding: 10px;
+    }
+    /* Map and weather containers */
+    #mapContainer, #weatherContainer {
+        margin: 20px auto;
+        max-width: 1200px;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    /* Weather information styles */
+    #weatherContainer {
+        background-color:rgb(90, 228, 255);
+        text-align: center;
+        color: #fff;
+    }
+    /* Responsive map container */
+    #mapContainer {
+        width: 100%;
+        height: 500px;
+    }
+    /* Custom map controls */
+    .here-map-container .mapSettingsControl {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        background-color:bisque;
+        border-radius: 4px;
+        padding: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    /* Styling for info bubble */
+    .info-bubble-content {
+        max-width: 200px;
+        text-align: left;
+    }
+    /* Responsive styling */
+    @media (max-width: 768px) {
+        #mapContainer, #weatherContainer {
+            margin: 10px auto;
+        }
+        .here-map-container .mapSettingsControl {
+            top: 10px;
+            right: 10px;
+            padding: 3px;
+        }
+        .info-bubble-content {
+            max-width: 150px;
+        }
+    }
+</style>
+<script>
+    var platform = new H.service.Platform({
+  'apikey': "POEKk48VtQlfNLrBNRi2hhisA2gCvxdkdPABNpsvsck"
+});
+
+var defaultLayers = platform.createDefaultLayers();
+var map = new H.Map(
+  document.getElementById('mapContainer'), 
+  defaultLayers.vector.normal.map,
+  {
+    zoom: 15,
+  }
+);
+navigator.geolocation.getCurrentPosition(function(position) {
+  var latitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
+
+  // Center the map to the user's location
+  map.setCenter({ lat: latitude, lng: longitude });
+
+  // Define user's location as a waypoint
+  var userLocation = latitude + ',' + longitude;
+
+  // Prompt user for destination (you can replace this with any method of input suitable for your application)
+  var destination = prompt("Please enter your destination:");
+
+  // Define destination as a waypoint
+  var waypoints = 'waypoints=' + userLocation + '|' + destination;
+
+  // Construct the routing request URL
+  var routingUrl = 'https://route.ls.hereapi.com/routing/7.2/calculateroute.json' +
+                   '?apiKey=' + window.hereCreds.JS_KEY +
+                   '&' + waypoints +
+                   '&mode=fastest;car;traffic:enabled';
+
+  // Perform the routing request
+  fetch(routingUrl)
+      .then(function(response) {
+          return response.json();
+      })
+      .then(function(data) {
+          // Parse the routing response and extract route information
+          var route = data.response.route[0];
+          var routeShape = route.shape;
+
+          // Create a polyline to display the route on the map
+          var strip = new H.geo.Strip();
+          routeShape.forEach(function(pointString) {
+              var parts = pointString.split(',');
+              strip.pushLatLngAlt(parseFloat(parts[0]), parseFloat(parts[1]));
+          });
+          var routePolyline = new H.map.Polyline(strip, {
+              style: { lineWidth: 5, strokeColor: 'rgba(0, 85, 170, 0.7)' } // Adjust route line style as needed
+          });
+
+          // Add the route polyline to the map
+          map.addObject(routePolyline);
+
+          // Zoom the map to fit the route
+          map.getViewModel().setLookAtData({bounds: routePolyline.getBoundingBox()});
+      })
+      .catch(function(error) {
+          console.error('Error fetching routing data:', error);
+      });
+});
+
+
+const ui = H.ui.UI.createDefault(map, defaultLayers);
+var provider = map.getBaseLayer().getProvider();
+const mapSettingsControl = ui.getControl('mapsettings');
+mapSettingsControl.setAlignment('top-right'); // Adjusted alignment to top-left
+
+var style = new H.map.Style(
+  'styles/styles.yaml',
+  'https://js.api.here.com/v3/3.1/styles/omv/'
+);
+
+const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+// Create the coordinates for the Spire of Dublin
+const spireCoordinates = { lat: 13.053563, lng: 80.21375 };
+
+// Create the HTML content for the info bubble
+const content = '<div>' +
+  '<h3>Chennai, India</h3>' +
+  '<p>Learn more about <a href="https://en.wikipedia.org/wiki/Chennai" target="_blank">Chennai</a>.</p>' +
+  '</div>';
+
+// Create an info bubble at the Chennai location with the HTML content
+const infoBubble = new H.ui.InfoBubble(spireCoordinates, { content });
+
+ui.addBubble(infoBubble);
+
+
+
+</script>
+<script src="index.js"></script>
+
+</html>

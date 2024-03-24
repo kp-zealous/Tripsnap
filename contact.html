@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Tourism Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+         header {
+            background-color: #1E90FF;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }       
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container1 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            max-height: 3600px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        .hero {
+    background-image: url('1.jpg'); /* Change 'city.jpg' to your image file */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align:start;
+    padding: 150px 0;
+    height: 200 px;
+   
+   }
+   .hero h1 {
+    font-size: 3em;
+    margin-bottom: 5px;
+    vertical-align: top;
+    text-align: top;
+}
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container1">
+                <h1>Trip Snap</h1>
+                <ul>
+                    <li><a href="main.html">Home</a></li>
+                    <li><a href="tour.html">Tours</a></li>
+                    <li><a href="index.html">Explore</a></li>
+                    <li><a href="tracker.html">Expense tracker</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="hero">
+        <h1>Contact Us</h1>
+    </section>
+    <div class="container">
+        <p>Have questions or feedback? Reach out to us!</p>
+        
+        <form action="#" method="post">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
