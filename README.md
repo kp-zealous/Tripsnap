@@ -5,7 +5,7 @@
 ```https://kp-zealous.github.io/Tripsnap/```
 
 # Demo Link
-```https://drive.google.com/file/d/1DMSzMgRjzSGZ-rN6zKqC0k-FuJKG4hy2/view?usp=drive_link```
+```[https://drive.google.com/file/d/1DMSzMgRjzSGZ-rN6zKqC0k-FuJKG4hy2/view?usp=drive_link](https://drive.google.com/file/d/1DMSzMgRjzSGZ-rN6zKqC0k-FuJKG4hy2/view?usp=sharing)```
 
 # Project Description:
 The TripSnap website serves as a comprehensive platform for travelers to explore destinations worldwide. Users can access detailed information about famous landmarks, including images, local cuisine specialties, notable attractions, and reasons for their fame. Additionally, the website features an expense tracker to help users manage their travel budgets effectively. With intuitive navigation, an "About" page providing insight into TripSnap's mission, and a "Contact" page for support inquiries, the website aims to enhance the travel planning experience for users.
