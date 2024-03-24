@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Page - Popular Destinations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #1E90FF;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .container1 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            max-height: 3600px;
+        } 
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .destination {
+            position: relative;
+            overflow: hidden;
+        }
+        .destination img {
+            width:fit-content;
+            object-fit:bottom;
+            height: 250px;;
+            transition: transform 0.3s;
+        }
+        .destination:hover img {
+            transform: scale(1.1);
+        }
+        .destination .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.8em;
+        }
+        .destination:hover .overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container1">
+                <h1>Trip Snap</h1>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tour.html">Tours</a></li>
+                    <li><a href="explore.html">Explore</a></li>
+                    <li><a href="tracker.html">Expense tracker</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="destination">
+            <img src="a.jpg" alt="Destination 1">
+            <div class="overlay">
+                <h2>Eiffel Tower, Paris</h2>
+                Famous Food: Nearby cafes offer French delicacies.<br><br>
+                Famous Things: Iconic for its architecture and views.<br><br>
+                Reason for Fame: Symbol of romance and French identity.
+
+            </div>
+        </div>
+        <div class="destination">
+            <img src="b.jpg" alt="Destination 2">
+            <div class="overlay">
+                <h2>The Colosseum, Rome</h2>
+                Famous Food: Nearby eateries offer Italian delights like pasta and pizza.<br><br>
+Famous Things: Iconic for its ancient architecture and historical significance.<br><br>
+Reason for Fame: Symbolizes the grandeur of ancient Rome, attracting millions of visitors.
+                
+            </div>
+        </div>
+        <div class="destination">
+            <img src="e.jpg" alt="Destination 1">
+            <div class="overlay">
+                <h2>The Acropolis, Athens</h2>
+                Famous Food: No specific association, but visitors to Athens enjoy traditional Greek cuisine nearby.<br><br>
+Famous Thing: Iconic ancient citadel showcasing remarkable architecture, including the Parthenon.<br><br>
+Reason for Fame: Symbolizes the birth of democracy and Western civilization, attracting tourists worldwide for its historical significance.
+
+            </div>
+        </div>
+        <div class="destination">
+            <img src="f.jpg" alt="Destination 1">
+            <div class="overlay">
+                <h2>The Taj Mahal, India</h2>
+                Famous Food: No specific association, but nearby regions offer diverse Indian cuisine.<br><br>
+Famous Thing: Iconic marble mausoleum renowned for its exquisite architecture and romantic allure.<br><br>
+Reason for Fame: Symbolizes eternal love, designated as a UNESCO World Heritage Site, and attracts millions of visitors annually for its beauty and historical significance..
+
+            </div>
+        </div>
+        <div class="destination">
+            <img src="c.jpg" alt="Destination 1">
+            <div class="overlay">
+                <h2> Statue of Liberty, New York City</h2>
+                Famous Food: No specific association, but nearby regions offer diverse culinary experiences.<br><br>
+Famous Thing: Iconic symbol of freedom and democracy, towering in New York Harbor.<br><br>
+Reason for Fame: Symbolizes American ideals of liberty and welcomes immigrants, recognized as a UNESCO World Heritage Site.
+            </div>
+        </div>
+        <div class="destination">
+            <img src="d.jpg" alt="Destination 1">
+            <div class="overlay">
+                <h2> Machu Picchu, Peru</h2>
+                Famous Food: No specific association, but nearby regions offer Peruvian cuisine.<br><br>
+Famous Thing: Iconic Incan citadel renowned for its ancient architecture.<br><br>
+Reason for Fame: Historical significance and mystical allure as a New Seven Wonder of the World.
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
