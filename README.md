@@ -1,7 +1,9 @@
 # Tripsnap
 "Trip Snap" is your ultimate guide to city exploration, offering guided tours, historical insights, interactive maps, and travel expense tracking—all in one place. Explore with ease and make the most of your adventures with Trip Snap.
 
-# Website link:  ```https://kp-zealous.github.io/Tripsnap/```
+# Website link:  
+```https://kp-zealous.github.io/Tripsnap/```
+
 # Project Description:
 The TripSnap website serves as a comprehensive platform for travelers to explore destinations worldwide. Users can access detailed information about famous landmarks, including images, local cuisine specialties, notable attractions, and reasons for their fame. Additionally, the website features an expense tracker to help users manage their travel budgets effectively. With intuitive navigation, an "About" page providing insight into TripSnap's mission, and a "Contact" page for support inquiries, the website aims to enhance the travel planning experience for users.
 
