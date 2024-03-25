@@ -173,7 +173,7 @@ nav ul li a {
 
 var defaultLayers = platform.createDefaultLayers();
 var map = new H.Map(
-  document.getElementById('mapContainer'), 
+  document.getElementById('mapContainer'),
   defaultLayers.vector.normal.map,
   {
     zoom: 15,
@@ -258,6 +258,7 @@ const content = '<div>' +
 const infoBubble = new H.ui.InfoBubble(spireCoordinates, { content });
 
 ui.addBubble(infoBubble);
+
 
 
 
